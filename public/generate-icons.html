@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html><head><title>Icon Generator</title></head>
+<body>
+<p>Generating PWA icons...</p>
+<script>
+// Draws the Tetris icon onto a canvas and exports as PNG
+function drawIcon(size) {
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext('2d');
+  const s = size / 32;
+  const r = size * 0.15;
+
+  // Rounded rect background
+  ctx.fillStyle = '#0a0a2e';
+  ctx.beginPath();
+  ctx.roundRect(0, 0, size, size, r);
+  ctx.fill();
+
+  const pad = size * 0.12;
+  const inner = size - pad * 2;
+  const bs = inner / 32;
+
+  function block(x, y, w, h, color) {
+    const bx = pad + x * bs;
+    const by = pad + y * bs;
+    const bw = w * bs - bs * 0.1;
+    const bh = h * bs - bs * 0.1;
+    const br = Math.max(1, bs * 0.3);
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.roundRect(bx, by, bw, bh, br);
+    ctx.fill();
+    // highlight
+    ctx.fillStyle = 'rgba(255,255,255,0.22)';
+    ctx.beginPath();
+    ctx.roundRect(bx, by, bw, bh * 0.35, br);
+    ctx.fill();
+  }
+
+  // T-piece (purple)
+  block(8, 0, 8, 8, '#d500f9');
+  block(0, 8, 8, 8, '#d500f9');
+  block(8, 8, 8, 8, '#d500f9');
+  block(16, 8, 8, 8, '#d500f9');
+  // L-piece (orange)
+  block(0, 16, 8, 8, '#ff9100');
+  block(0, 24, 8, 8, '#ff9100');
+  block(8, 24, 8, 8, '#ff9100');
+  block(16, 24, 8, 8, '#ff9100');
+  // I-piece (cyan)
+  block(24, 8, 8, 8, '#00e5ff');
+  block(24, 16, 8, 8, '#00e5ff');
+  block(24, 24, 8, 8, '#00e5ff');
+
+  return canvas;
+}
+
+async function generate() {
+  for (const size of [192, 512]) {
+    const canvas = drawIcon(size);
+    const blob = await new Promise(r => canvas.toBlob(r, 'image/png'));
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `icon-${size}.png`;
+    a.click();
+    document.body.innerHTML += `<p>Downloaded icon-${size}.png</p>`;
+  }
+}
+generate();
+</script>
+</body></html>

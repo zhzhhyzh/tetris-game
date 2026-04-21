@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Rounded background -->
+  <rect width="512" height="512" rx="80" fill="#0a0a2e"/>
+  <!-- Tetromino blocks scaled to 512 with padding -->
+  <g transform="translate(96, 56) scale(10)">
+    <!-- T-piece (purple) -->
+    <rect x="8" y="0" width="7.5" height="7.5" rx="1" fill="#d500f9"/>
+    <rect x="0" y="8.5" width="7.5" height="7.5" rx="1" fill="#d500f9"/>
+    <rect x="8" y="8.5" width="7.5" height="7.5" rx="1" fill="#d500f9"/>
+    <rect x="16" y="8.5" width="7.5" height="7.5" rx="1" fill="#d500f9"/>
+    <!-- L-piece (orange) -->
+    <rect x="0" y="17" width="7.5" height="7.5" rx="1" fill="#ff9100"/>
+    <rect x="0" y="25.5" width="7.5" height="7.5" rx="1" fill="#ff9100"/>
+    <rect x="8" y="25.5" width="7.5" height="7.5" rx="1" fill="#ff9100"/>
+    <rect x="16" y="25.5" width="7.5" height="7.5" rx="1" fill="#ff9100"/>
+    <!-- I-piece (cyan) -->
+    <rect x="24" y="8.5" width="7.5" height="7.5" rx="1" fill="#00e5ff"/>
+    <rect x="24" y="17" width="7.5" height="7.5" rx="1" fill="#00e5ff"/>
+    <rect x="24" y="25.5" width="7.5" height="7.5" rx="1" fill="#00e5ff"/>
+    <!-- Highlights -->
+    <rect x="8" y="0" width="7.5" height="2.5" rx="1" fill="rgba(255,255,255,0.25)"/>
+    <rect x="0" y="8.5" width="24" height="2.5" rx="1" fill="rgba(255,255,255,0.15)"/>
+    <rect x="0" y="17" width="7.5" height="2.5" rx="1" fill="rgba(255,255,255,0.2)"/>
+    <rect x="0" y="25.5" width="24" height="2.5" rx="1" fill="rgba(255,255,255,0.15)"/>
+    <rect x="24" y="8.5" width="7.5" height="2.5" rx="1" fill="rgba(255,255,255,0.2)"/>
+  </g>
+</svg>
