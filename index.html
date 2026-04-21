@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Tetris</title>
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+</head>
+<body>
+  <div id="app">
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen active">
+      <h1 class="title">TETRIS</h1>
+      <div class="menu">
+        <button id="btn-play" class="btn-primary">PLAY</button>
+        <button id="btn-leaderboard" class="btn-secondary">LEADERBOARD</button>
+        <div class="theme-select">
+          <label>THEME</label>
+          <select id="theme-selector">
+            <option value="retro">Retro</option>
+            <option value="modern" selected>Modern</option>
+            <option value="dark">Dark Mode</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+      <div class="game-layout">
+        <div class="side-panel left-panel">
+          <div class="panel-box hold-box">
+            <h3>HOLD</h3>
+            <canvas id="hold-canvas" width="100" height="80"></canvas>
+          </div>
+          <div class="panel-box score-box">
+            <h3>SCORE</h3>
+            <div id="score-value">0</div>
+          </div>
+          <div class="panel-box level-box">
+            <h3>LEVEL</h3>
+            <div id="level-value">1</div>
+          </div>
+          <div class="panel-box lines-box">
+            <h3>LINES</h3>
+            <div id="lines-value">0</div>
+          </div>
+        </div>
+
+        <div class="board-container">
+          <canvas id="game-canvas"></canvas>
+          <div id="combo-popup" class="combo-popup hidden"></div>
+          <div id="pause-overlay" class="overlay hidden">
+            <h2>PAUSED</h2>
+            <button id="btn-resume" class="btn-primary">RESUME</button>
+            <button id="btn-quit" class="btn-secondary">QUIT</button>
+          </div>
+          <div id="gameover-overlay" class="overlay hidden">
+            <h2>GAME OVER</h2>
+            <div id="final-score-label">Score: <span id="final-score">0</span></div>
+            <input id="player-name" type="text" placeholder="Enter name" maxlength="12" />
+            <button id="btn-save-score" class="btn-primary">SAVE SCORE</button>
+            <button id="btn-restart" class="btn-secondary">PLAY AGAIN</button>
+            <button id="btn-menu" class="btn-secondary">MENU</button>
+          </div>
+        </div>
+
+        <div class="side-panel right-panel">
+          <div class="panel-box next-box">
+            <h3>NEXT</h3>
+            <canvas id="next-canvas" width="100" height="240"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-controls-bar">
+        <button id="btn-pause" class="icon-btn" title="Pause">⏸</button>
+        <button id="btn-mute" class="icon-btn" title="Mute">🔊</button>
+      </div>
+    </div>
+
+    <!-- Leaderboard Screen -->
+    <div id="leaderboard-screen" class="screen">
+      <h2 class="title">LEADERBOARD</h2>
+      <div class="leaderboard-table">
+        <div class="lb-header">
+          <span>#</span><span>Name</span><span>Score</span><span>Level</span>
+        </div>
+        <div id="lb-entries"></div>
+      </div>
+      <button id="btn-back" class="btn-secondary">BACK</button>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
